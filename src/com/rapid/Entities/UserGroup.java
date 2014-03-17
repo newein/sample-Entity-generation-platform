@@ -45,6 +45,10 @@ public class UserGroup implements Serializable {
 	    inverseJoinColumns={@JoinColumn(name="user_id" , referencedColumnName="user_id")})
 	private List<UserInfo> userList = new ArrayList<UserInfo>();
 
+	@OneToOne
+	@JoinColumn(name="cartSharedWithGroup")
+	private Cart cart;
+	
 	@Version
     private Long version;
 
@@ -78,6 +82,14 @@ public class UserGroup implements Serializable {
 
 	public void setUserList(List<UserInfo> userList) {
 		this.userList = userList;
+	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 
 }

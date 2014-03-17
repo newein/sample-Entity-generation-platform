@@ -35,25 +35,111 @@ public class Cart implements Serializable {
 	private long cartId;
 
 	@ManyToOne
-	@JoinColumn(name="user_id")
-	private UserInfo owner_id;
+	@JoinColumn(name="owner_id" , referencedColumnName="user_id")
+	private UserInfo ownerId;
 
 	@ManyToOne
-	@JoinColumn(name="user_id")
-	private UserInfo buyer_id;
+	@JoinColumn(name="buyer_id" , referencedColumnName="user_id")
+	private UserInfo buyerId;
 	
+	@ManyToOne
+	@JoinColumn(name="store_info_for_cart" ,referencedColumnName="store_info_id")
+	private StoreInfo storeInfoForCart;
+
 	@ElementCollection
 	@CollectionTable(name="cart_products",joinColumns=@JoinColumn(name="cart_id"))
 	private List<ProductList> productList = new ArrayList<ProductList>();
-   
+	
 	@Column(name = "cart_type")
 	private String cartType;
-	
+
 	@Column(name="is_cart_active")
 	private boolean isCartActive;
 	
+	@OneToOne(mappedBy="cart")
+	private UserGroup cartSharedWithGroup;   
+		
 	
 	@Version
     private Long version;
+
+	public long getCartId() {
+		return cartId;
+	}
+
+
+	public void setCartId(long cartId) {
+		this.cartId = cartId;
+	}
+
+
+	public UserInfo getOwnerId() {
+		return ownerId;
+	}
+
+
+	public void setOwnerId(UserInfo ownerId) {
+		this.ownerId = ownerId;
+	}
+
+
+	public UserInfo getBuyerId() {
+		return buyerId;
+	}
+
+
+	public void setBuyerId(UserInfo buyerId) {
+		this.buyerId = buyerId;
+	}
+
+
+	public StoreInfo getStoreInfoForCart() {
+		return storeInfoForCart;
+	}
+
+
+	public void setStoreInfoForCart(StoreInfo storeInfoForCart) {
+		this.storeInfoForCart = storeInfoForCart;
+	}
+
+
+	public List<ProductList> getProductList() {
+		return productList;
+	}
+
+
+	public void setProductList(List<ProductList> productList) {
+		this.productList = productList;
+	}
+
+
+	public String getCartType() {
+		return cartType;
+	}
+
+
+	public void setCartType(String cartType) {
+		this.cartType = cartType;
+	}
+
+
+	public boolean isCartActive() {
+		return isCartActive;
+	}
+
+
+	public void setCartActive(boolean isCartActive) {
+		this.isCartActive = isCartActive;
+	}
+
+
+	public UserGroup getCartSharedWithGroup() {
+		return cartSharedWithGroup;
+	}
+
+
+	public void setCartSharedWithGroup(UserGroup cartSharedWithGroup) {
+		this.cartSharedWithGroup = cartSharedWithGroup;
+	}
 
 }

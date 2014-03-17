@@ -51,6 +51,15 @@ public class UserInfo implements Serializable {
 	@ManyToMany(mappedBy="userList")
 	private List<UserGroup> groupList = new ArrayList<UserGroup>();
 
+	@OneToMany(mappedBy="ownerId")
+	List<Cart> listOfCartOwned = new ArrayList<Cart>();
+
+	@OneToMany(mappedBy="buyerId")
+	List<Cart> listOfCartBought = new ArrayList<Cart>();
+
+	@OneToMany(mappedBy="user_id")
+	List<UserNotification> listOfNotificationForUser = new ArrayList<UserNotification>();
+	
 	@Version
     private Long version;
 
@@ -108,5 +117,30 @@ public class UserInfo implements Serializable {
 
 	public void setGroupList(List<UserGroup> groupList) {
 		this.groupList = groupList;
+	}
+
+	public List<Cart> getListOfCartOwned() {
+		return listOfCartOwned;
+	}
+
+	public void setListOfCartOwned(List<Cart> listOfCartOwned) {
+		this.listOfCartOwned = listOfCartOwned;
+	}
+
+	public List<Cart> getListOfCartBought() {
+		return listOfCartBought;
+	}
+
+	public void setListOfCartBought(List<Cart> listOfCartBought) {
+		this.listOfCartBought = listOfCartBought;
+	}
+
+	public List<UserNotification> getListOfNotificationForUser() {
+		return listOfNotificationForUser;
+	}
+
+	public void setListOfNotificationForUser(
+			List<UserNotification> listOfNotificationForUser) {
+		this.listOfNotificationForUser = listOfNotificationForUser;
 	}
 }

@@ -3,5 +3,8 @@
 	<persistence-unit name="GoShop Entity Generation">
 		<class>com.rapid.Entities.UserGroup</class>
 		<class>com.rapid.Entities.Cart</class>
+		<class>com.rapid.Entities.StoreInfo</class>
+		<class>com.rapid.Entities.UserInfo</class>
+		<class>com.rapid.Entities.UserNotification</class>
 	</persistence-unit>
 </persistence>

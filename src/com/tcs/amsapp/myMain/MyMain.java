@@ -8,15 +8,6 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import com.tcs.amsapp.Entities.Address;
-import com.tcs.amsapp.Entities.BreakCountRule;
-import com.tcs.amsapp.Entities.BreakPositionRule;
-import com.tcs.amsapp.Entities.Client;
-import com.tcs.amsapp.Entities.Configuration;
-import com.tcs.amsapp.Entities.Process;
-import com.tcs.amsapp.Entities.Shift;
-import com.tcs.amsapp.Entities.Skill;
-import com.tcs.amsapp.Entities.Student;
 
 public class MyMain {
 
